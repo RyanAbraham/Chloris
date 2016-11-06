@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
     public float hiLim = 0.1f;
     public float fHigh = 10.0f;
     public float fLow = 0.2f;
-    public readonly int waitTime = 30;
     public GameObject coin;
 
     private float curAccel = 0f;
@@ -49,7 +48,6 @@ public class GameManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        //steps++;
         curAccel = Mathf.Lerp(curAccel, Input.acceleration.magnitude, Time.deltaTime * fHigh);
         avgAccel = Mathf.Lerp(avgAccel, Input.acceleration.magnitude, Time.deltaTime * fLow);
         float delta = curAccel - avgAccel;
@@ -59,12 +57,11 @@ public class GameManager : MonoBehaviour
                 stateH = true;
                 steps++;
                 // Handle pickups[0]
-                if (pickups[0] != null) Destroy(pickups[0]);
+                if (pickups[0] != null) {
+                    Destroy(pickups[0]);
+                }
                 for (int i = 1; i < pickups.Length; i++) {
-                    Debug.Log(i);
-                    Debug.Log(pickups[i]);
                     if (pickups[i] != null) {
-                        Debug.Log("woo");
                         pickups[i].transform.position = new Vector3(0, i-1, -2);
                         pickups[i - 1] = pickups[i];
                         pickups[i] = null;
