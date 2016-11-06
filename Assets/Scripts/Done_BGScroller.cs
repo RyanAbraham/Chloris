@@ -3,8 +3,8 @@ using System.Collections;
 
 public class Done_BGScroller : MonoBehaviour
 {
-	private float scrollSpeed = 5;
-	private float tileSizeZ = 1;
+	public float scrollSpeed;
+	public float tileSizeZ;
 
 	private Vector3 startPosition;
 
