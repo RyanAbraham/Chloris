@@ -1,4 +1,4 @@
-Chloris
+![](Chloris_Logo.png)
 =========================
 Inspiration
 -----------
